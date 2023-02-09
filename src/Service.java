@@ -12,8 +12,6 @@ public class Service extends Change {
     public void go() {
         Scanner input = new Scanner(System.in);
 
-        System.out.print("Введите сколько у вас денег (Именно цифрами! пример: 5000) >> ");
-        while (!moneyCheck) {
             try {
                 money = input.nextInt();
                 moneyCheck = true;
@@ -21,7 +19,6 @@ public class Service extends Change {
                 System.out.println("Вы ввели неправильное значение! Перезапустите программу!");
                 System.exit(0);
             }
-        }
         System.out.print("""
                 Добро пожаловать в нашу автомастерскую "Весёлые колёса" """);
 
