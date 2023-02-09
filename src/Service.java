@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Service extends Change {
@@ -6,19 +7,27 @@ public class Service extends Change {
     int price;
     int money;
     int result;
+    boolean moneyCheck = false;
+
     public void go() {
         Scanner input = new Scanner(System.in);
 
         System.out.print("Введите сколько у вас денег (Именно цифрами! пример: 5000) >> ");
-
-        money = input.nextInt();
-
+        while (!moneyCheck) {
+            try {
+                money = input.nextInt();
+                moneyCheck = true;
+            } catch (Exception e) {
+                System.out.println("Вы ввели неправильное значение! Перезапустите программу!");
+                System.exit(0);
+            }
+        }
         System.out.print("""
                 Добро пожаловать в нашу автомастерскую "Весёлые колёса" """);
 
         while (!choiceEnd) {
             System.out.print("""
-                    
+                                        
                     Вам на выбор предоставлено несколько услуг:
                     1. Починка бокового крыла                   Цена: 1000
                     2. Починка лобового стекла                  Цена: 2000
