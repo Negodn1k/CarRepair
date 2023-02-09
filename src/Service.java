@@ -10,6 +10,7 @@ public class Service extends Change {
         Scanner input = new Scanner(System.in);
 
         System.out.print("Введите сколько у вас денег (Именно цифрами! пример: 5000) >> ");
+
         money = input.nextInt();
 
         System.out.print("""
