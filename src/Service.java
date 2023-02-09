@@ -12,6 +12,7 @@ public class Service extends Change {
     public void go() {
         Scanner input = new Scanner(System.in);
 
+        System.out.print("Введите сколько у вас денег (Именно цифрами! пример: 5000) >> ");
             try {
                 money = input.nextInt();
                 moneyCheck = true;
@@ -19,7 +20,11 @@ public class Service extends Change {
                 System.out.println("Вы ввели неправильное значение! Перезапустите программу!");
                 System.exit(0);
             }
-        System.out.print("""
+        if (money <= 1000) {
+            System.out.println("У вас не хватает денег, приходите попозже");
+            System.exit(0);
+        }
+            System.out.print("""
                 Добро пожаловать в нашу автомастерскую "Весёлые колёса" """);
 
         while (!choiceEnd) {
@@ -40,7 +45,6 @@ public class Service extends Change {
                     Введите номер услуги (Если хотите закончить выбор услуг введите: 0) >> """);
             choice = input.next();
 
-            if (money >= 1000) {
                 switch (choice) {
                     case "1":
                         price = price + 1000;
@@ -88,10 +92,7 @@ public class Service extends Change {
                     default:
                         System.out.println("Вы ввели не то значение, повторите попытку!");
                 }
-            } else {
-                System.out.println("У вас не хватает денег, приходите попозже");
-                choiceEnd = false;
-            }
+
             System.out.println("Выбор завершён, итоговая цена: " + price);
 
             result = change(money, price);
